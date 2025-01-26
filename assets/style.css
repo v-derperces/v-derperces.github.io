@@ -1,0 +1,329 @@
+:root{
+    --face-width : 150px;
+    --face-height : 200px;
+    --face-stroke : 20px;
+    --colour-book-pages : #ffffd0;
+    --colour-book-cover : #7d3407;
+    --colour-about-me: #00b3ff;
+    --colour-tech: #CC9900;
+    --colour-projects: #f55c5c;
+    --colour-contact: #5cA350;
+    --colour-background : #060821;
+    --font-family : Verdana, Geneva, Tahoma, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p{
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+    color: black;
+}
+
+html, body {
+    height: 100%; 
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-color: var(--colour-background);
+}
+
+a{
+    text-decoration: none;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.fade-in{
+    animation: fadeIn 2.5s forwards;
+}
+
+@keyframes fadeIn {
+    from   {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/*******************************************/
+/*                                         */
+/*               HOME PAGE                 */
+/*                                         */
+/*******************************************/
+
+#book-container{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book {
+    position: relative;
+    width: var(--face-width);
+    height: var(--face-height);
+    transform-style: preserve-3d;
+    transform: rotateY(-25deg) rotateX(45deg);
+    transition: transform 1.5s ease;
+}
+
+.book:hover{
+    cursor: pointer;
+    transform: rotateY(0) rotateX(0) scale(1.5);
+}
+
+/* Book faces */
+.face{
+    position: absolute;
+}
+
+.back, .front{
+    width: var(--face-width);
+    height: var(--face-height);
+    border: 1px solid black;
+    background-color: var(--colour-book-cover);
+}
+
+.front{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateZ(20px);
+    text-decoration: none;
+    color: black;
+}
+
+.front h1{
+    line-height: 2;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.bottom, .top{
+    width: calc( var(--face-width) - 10px);
+    height: var(--face-stroke);
+}
+
+.bottom, .right, .top{
+    background-color: var(--colour-book-pages);
+}
+
+.bottom{
+    transform: rotateX(-90deg) translateY(-10px) translateZ(180px);
+}
+
+.top{
+    transform: rotateX(90deg) translateY(10px) ;
+}
+
+.left, .right{
+    width: var(--face-stroke);
+}
+
+.left{
+    height: var(--face-height);
+    transform: rotateY(-90deg) translateX(10px) translateZ(10px);
+    background-color: var(--colour-book-cover);
+}
+
+.right{
+    height: calc(var(--face-height) - 20px);
+    transform: rotateY(90deg) translateX(-10px) translateZ(130px) translateY(10px);
+}
+
+/*******************************************/
+/*                                         */
+/*             MAIN SECTION                */
+/*                                         */
+/*******************************************/
+
+#section-main{
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+}
+
+main{
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Header */
+header{
+    height: 10vh;
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1{
+    font-size: 1.5rem;
+    color: white;
+}
+
+header h1:hover{
+    cursor: pointer;
+}
+
+#bookmark{
+    width: 1.5rem;
+    height: 2rem;
+    clip-path: polygon(0% 0%, 100% 0, 100% 100%, 50% 70%, 0% 100%);
+    background-color: var(--colour-book-cover);
+}
+
+footer{
+    height: 10vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+/* NAV */
+#about-me{
+    background-color: var(--colour-about-me);
+}
+
+#tech{
+    background-color: var(--colour-tech);
+}
+
+#projects{
+    background-color: var(--colour-projects);
+}
+
+#contact{
+    background-color: var(--colour-contact);
+}
+
+/* Pages */
+
+main section{
+    background-color: var(--colour-book-pages);
+}
+
+nav h1, section h2{
+    font-size: 2rem;
+    font-style: italic;
+}
+
+nav h1{
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    color: var(--colour-book-pages);
+}
+
+nav h2{
+    padding: 0.5rem 0 0.5rem 1rem;
+    clip-path: polygon(0% 0%, 100% 0, 90% 50%, 100% 100%, 0% 100%);
+}
+
+h2{
+    margin-bottom: 1rem;
+    font-style: italic;
+    font-weight: lighter;
+    text-transform: capitalize;
+}
+
+.page{
+    width: 90%;
+    padding: 3rem 1rem 1rem 1rem;
+    display: block;
+    overflow-y: scroll;
+}
+
+button{
+    width: 50%;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: transparent;
+    color: var(--colour-book-pages);
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+.front-logos-container {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.front-logo{
+    width: calc(100% / 3);
+}
+
+.screenshot-a{
+    width: 80%;
+    margin: 0 auto 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.project{
+    width: 100%;
+    border: var(--colour-projects) solid 5px;
+    border-style: ridge;
+}
+
+.contact-container{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-container a{
+    height: 100%;
+    padding: 1rem;
+    border-radius: 5px;
+    border: var(--colour-contact) solid 2px;
+    font-weight: bold;
+    color: white;
+    background-color: var(--colour-contact);
+    animation: shake 8s ease infinite;
+    animation-delay: 3s;
+}
+
+@keyframes shake {
+    0%   {
+        transform: rotateZ(0);
+    }
+    2.5%   {
+        transform: rotateZ(5deg);
+    }
+    5%   {
+        transform: rotateZ(-5deg);
+    }
+    7.5%   {
+        transform: rotateZ(5deg);
+    }
+    10%   {
+        transform: rotateZ(-5deg);
+    }
+    12.5%   {
+        transform: rotateZ(5deg);
+    }
+    20%   {
+        transform: rotateZ(0deg);
+    }
+    100%   {
+        transform: rotateZ(0deg);
+    }
+}
