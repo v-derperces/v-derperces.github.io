@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Viviane Derperces</title>
-    <link rel="stylesheet" href="./assets/style.css">
-    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-    <script type="module" src="./assets/script.js"></script>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Viviane Derperces</title>
+        <link rel="stylesheet" href="./assets/style.css">
+        <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+        <script type="module" src="./assets/script.js" defer></script>
 </head>
 <body>
+    <div class="stars">
+    </div>
     <section id="book-container" class="fade-in">
         <div class="book">
             <div class="face top"></div>
@@ -18,22 +20,22 @@
             <div class="face front">
                 <h1>Viviane Derperces <br>Web <br> Developper</h1>
             </div>
-            <div class="face back">Back</div>
+            <div class="face back"></div>
         </div>
     </section>
-    <section id="section-main" class="hidden fade-away ">
+    <section id="section-main" class="hidden">
         <header>
             <h1>Viviane D.</h1>        
-            <div id="bookmark"></div>
+            <div id="bookmark" class="hidden"></div>
         </header>
-        <main>
-            <nav class="page">
-                <h1>Sommaire</h1>
-                <h2 id="about-me">Qui suis-je ?</h2>
-                <h2 id="tech">Technologies</h2>
-                <h2 id="projects">Mes projets</h2>
-                <h2 id="contact">Me contacter</h2>
-            </nav>
+        <nav>
+            <h1>Sommaire</h1>
+            <h2 id="about-me" class="bookmark">Qui suis-je ?</h2>
+            <h2 id="tech" class="bookmark">Technologies</h2>
+            <h2 id="projects" class="bookmark">Mes projets</h2>
+            <h2 id="contact" class="bookmark">Me contacter</h2>
+        </nav>
+        <main class="hidden">
             <section class="page">
                 <h2>Qui suis-je ?</h2>
                 <div class="details">
@@ -54,7 +56,7 @@
             </section>
             <section class="page">
                 <h2>Mes projets</h2>
-                <a href="" class="screenshot-a">
+                <a href="https://github.com/v-derperces/v-derperces.github.io" class="screenshot-a">
                     <img class="project" src="./assets/images/screenshot_home_page.png" alt="Image Page d'accueil du Portfolio">
                 </a>
                 <p>Je suis particulièrement fière de mon portfolio en ligne, car j'ai pu laisser libre cours à mon imagination et améliorer mes compétences front-end.</p>
@@ -69,7 +71,7 @@
                 </div>
             </section>
         </main>
-        <footer>
+        <footer class="hidden">
             <button id="previous-btn"><i class="fas fa-arrow-left"></i></button>
             <button id="next-btn"><i class="fas fa-arrow-right"></i></button>
         </footer>

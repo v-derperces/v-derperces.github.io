@@ -42,12 +42,73 @@ a{
     animation: fadeIn 2.5s forwards;
 }
 
+
 @keyframes fadeIn {
     from   {
         opacity: 0;
     }
     to {
         opacity: 1;
+    }
+}
+
+@keyframes shake {
+    0%   {
+        transform: rotateZ(0);
+    }
+    2.5%   {
+        transform: rotateZ(5deg);
+    }
+    5%   {
+        transform: rotateZ(-5deg);
+    }
+    7.5%   {
+        transform: rotateZ(5deg);
+    }
+    10%   {
+        transform: rotateZ(-5deg);
+    }
+    12.5%   {
+        transform: rotateZ(5deg);
+    }
+    20%   {
+        transform: rotateZ(0deg);
+    }
+    100%   {
+        transform: rotateZ(0deg);
+    }
+}
+
+@keyframes levitate {
+    0%{
+        transform: translateY(0) rotateY(-25deg) rotateX(45deg);
+    }
+    50%{
+        transform: translateY(20px) rotateY(-10deg) rotateX(45deg);
+    }
+    100%{
+        transform: translateY(0) rotateY(-25deg) rotateX(45deg);
+    }
+} 
+
+@keyframes twinkle {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* Animation pour ajouter des étoiles dynamiquement */
+@keyframes moveStars {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
     }
 }
 
@@ -72,16 +133,19 @@ a{
     width: var(--face-width);
     height: var(--face-height);
     transform-style: preserve-3d;
-    transform: rotateY(-25deg) rotateX(45deg);
-    transition: transform 1.5s ease;
+    animation: levitate 3s infinite linear;
+    z-index: 2;
 }
 
 .book:hover{
     cursor: pointer;
-    transform: rotateY(0) rotateX(0) scale(1.5);
+    /* transform: rotateY(0) rotateX(0) scale(1.5); */
 }
 
-/* Book faces */
+/*******************************************/
+/*               BOOK FACES                */
+/*******************************************/
+
 .face{
     position: absolute;
 }
@@ -157,16 +221,21 @@ a{
 }
 
 main{
-    height: 80vh;
+    height: 80%;
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-/* Header */
+/*******************************************/
+/*                 HEADER                  */
+/*******************************************/
+
 header{
-    height: 10vh;
-    padding: 0.5rem 1rem;
+    height: 10%;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0.5rem 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -188,14 +257,23 @@ header h1:hover{
     background-color: var(--colour-book-cover);
 }
 
-footer{
-    height: 10vh;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+/*******************************************/
+/*                   NAV                   */
+/*******************************************/
+
+nav{
+    height: 80%;
+    width: 90%;
+    padding: 3rem 1rem 1rem 1rem;
+    margin: 0 auto;
 }
 
-/* NAV */
+nav h1{
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    color: var(--colour-book-pages);
+}
+
 #about-me{
     background-color: var(--colour-about-me);
 }
@@ -212,32 +290,27 @@ footer{
     background-color: var(--colour-contact);
 }
 
-/* Pages */
+.bookmark{
+    padding: 0.5rem 0 0.5rem 1rem;
+    clip-path: polygon(0% 0%, 100% 0, 90% 50%, 100% 100%, 0% 100%);
+}
+
+/*******************************************/
+/*                 PAGES                   */
+/*******************************************/
 
 main section{
     background-color: var(--colour-book-pages);
 }
+
 
 nav h1, section h2{
     font-size: 2rem;
     font-style: italic;
 }
 
-nav h1{
-    margin-bottom: 3rem;
-    text-transform: uppercase;
-    color: var(--colour-book-pages);
-}
-
-nav h2{
-    padding: 0.5rem 0 0.5rem 1rem;
-    clip-path: polygon(0% 0%, 100% 0, 90% 50%, 100% 100%, 0% 100%);
-}
-
 h2{
     margin-bottom: 1rem;
-    font-style: italic;
-    font-weight: lighter;
     text-transform: capitalize;
 }
 
@@ -246,18 +319,6 @@ h2{
     padding: 3rem 1rem 1rem 1rem;
     display: block;
     overflow-y: scroll;
-}
-
-button{
-    width: 50%;
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: transparent;
-    color: var(--colour-book-pages);
-}
-
-button:hover{
-    cursor: pointer;
 }
 
 .front-logos-container {
@@ -301,29 +362,87 @@ button:hover{
     animation-delay: 3s;
 }
 
-@keyframes shake {
-    0%   {
-        transform: rotateZ(0);
+/*******************************************/
+/*                 FOOTER                  */
+/*******************************************/
+
+footer{
+    height: 10%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+button{
+    width: 50%;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: transparent;
+    color: var(--colour-book-pages);
+}
+
+button:hover{
+    cursor: pointer;
+}
+
+/*******************************************/
+/*                                         */
+/*                 STARS                   */
+/*                                         */
+/*******************************************/
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; 
+    z-index: 1;
+    display: block;
+}
+
+.star {
+    position: absolute;
+    background-image: url("images/image-star.png");
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: twinkle 1.5s infinite alternate;
+}
+
+/*******************************************/
+/*                                         */
+/*             MEDIA QUERIES               */
+/*                                         */
+/*******************************************/
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    header{
+        width: 80%;
     }
-    2.5%   {
-        transform: rotateZ(5deg);
+    nav{
+        width: 80%;
     }
-    5%   {
-        transform: rotateZ(-5deg);
-    }
-    7.5%   {
-        transform: rotateZ(5deg);
-    }
-    10%   {
-        transform: rotateZ(-5deg);
-    }
-    12.5%   {
-        transform: rotateZ(5deg);
-    }
-    20%   {
-        transform: rotateZ(0deg);
-    }
-    100%   {
-        transform: rotateZ(0deg);
+    .page{
+        width: 80%;
+        padding-left: 2rem;
+        padding-right: 2rem;
     }
 }
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+} 
