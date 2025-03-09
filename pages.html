@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Viviane Derperces</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+  <link rel="stylesheet" href="./assets/style.css">
+</head>
+<body>
+  <div class="stars">
+  </div>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="index.html">Viviane D.</a>
+        <button id="bookmark" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarBookmarks" aria-controls="navbarBookmarks" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarBookmarks">
+          <div class="navbar-nav">
+            <span class="sommaire h2">Sommaire</span>
+            <div class="carousel-indicators">
+              <li id="about-me" data-bs-target="#carousel-pages" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1">About</li>
+              <li id="tech" data-bs-target="#carousel-pages" data-bs-slide-to="1" aria-label="Slide 2">Technologies</li>
+              <li id="projects" data-bs-target="#carousel-pages" data-bs-slide-to="2" aria-label="Slide 3">Projets</li>
+              <li id="contact" data-bs-target="#carouselPages" data-bs-slide-to="3" aria-label="Slide 4">Contact</li>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main id="section-main" class="container-lg">
+    <article class="container-lg">
+      <div id="carousel-pages" class="carousel slide" data-bs-wrap="false">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <h2 class="carousel-h2" id="h2-about-me"><span>Q</span>ui <span>s</span>uis-<span>j</span>e ?</h2>
+            <div class="details">
+              <p>Avant de me lancer dans le développement web, j'ai baigné dans un univers plus littéraire, où la réflexion et l'analyse étaient primordiales.</p>
+              <p>La licence LLCER Anglais m'a permis d'acquérir des compétences transversales qui nourrissent désormais mon approche du développement web.</p>
+              <p>J'ai choisi de me reconvertir dans le domaine de l'informatique car il fait désormais partie intégrante de notre quotidien.</p>
+              <p>L'influence du numérique sur notre manière de communiquer, de travailler et même de vivre est grandissante, et j’ai envie de participer activement à cette transformation.</p>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <h2 class="carousel-h2" id="h2-tech"><span>T</span>echnologies</h2>
+            
+            
+            
+            <div class="accordion" id="accordionTech">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    HTML5 - CSS - JavaScript
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionTech">
+                  <div class="accordion-body">
+                    HTML et CSS sont incontournables pour créer des pages webs fonctionnelles et structurées,accessibles et adaptées à tous types d'écrans. Ces premières étapes m'ont permis de construire une solide base, avant de me lancer dans l'exploration de technologies plus complexes.                  </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                      Java - Swing
+                    </button>
+                  </h2>
+                  <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionTech">
+                    <div class="accordion-body">
+                      J’ai exploré le monde de la programmation logicielle avec Java etrenforcé ma compréhension des concepts orientés objet.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                      SQLServer - mySQL
+                    </button>
+                  </h2>
+                  <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionTech">
+                    <div class="accordion-body">
+                      J'ai pu travailler avec des bases de données, et stocker et gérer efficacement des données au sein de mes applications, relier les interfaces utilisateurs (via Swing) aux données stockées dans des bases de données relationnelles, comme MySQL.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+            
+            </div>
+            <div class="carousel-item">
+              <h2 class="carousel-h2" id="h2-projects"><span>M</span>es <span>p</span>rojets</h2>
+              <div class="container-lg col-10 my-4">
+                <a href="https://github.com/v-derperces/v-derperces.github.io" class="screenshot-a">
+                  <img class="img-fluid" src="./assets/images/screenshot_home_page.png" alt="Image Page d'accueil du Portfolio">
+                </a>
+              </div>
+              <p>Je suis particulièrement fière de mon portfolio en ligne, car j'ai pu laisser libre cours à mon imagination et améliorer mes compétences front-end.</p>
+              <p>N'hésitez pas à revenir sur cette page pour suivre mon évolution et découvrir mes nouveaux projets !</p>
+            </div>
+            <div class="carousel-item">
+              <h2 class="carousel-h2" id="h2-contact"><span>M</span>e <span>c</span>ontacter</h2>
+              <p>Je suis à la recherche d'opportunités d'échanges et de collaborations. </p>
+              <p>Si vous êtes intéressée par mon parcours ou si vous souhaitez me faire part de conseils,
+                je serais ravie de discuter avec vous !</p>
+                <div class="container-contact-btn container-lg d-flex justify-content-center mt-4">
+                  <a class="btn contact-btn" href="https://linkedin.com/in/viviane-d" role="button">Discutons !</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+      <div class="nav-btn-container container-lg d-flex justify-content-evenly align-items-center">
+        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-pages" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carousel-pages" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script type="module" src="./assets/js/script.js"></script>
+    <script type="module" src="./assets/js/pages.js"></script>
+  </body>
+  </html>

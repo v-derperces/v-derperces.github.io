@@ -12,12 +12,6 @@
     --font-family : Verdana, Geneva, Tahoma, sans-serif;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 p{
     line-height: 1.5;
     margin-bottom: 0.5rem;
@@ -30,27 +24,6 @@ html, body {
     background-color: var(--colour-background);
 }
 
-a{
-    text-decoration: none;
-}
-
-.hidden{
-    display: none !important;
-}
-
-.fade-in{
-    animation: fadeIn 2.5s forwards;
-}
-
-
-@keyframes fadeIn {
-    from   {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
 
 @keyframes shake {
     0%   {
@@ -102,16 +75,6 @@ a{
     }
 }
 
-/* Animation pour ajouter des étoiles dynamiquement */
-@keyframes moveStars {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(100vh);
-    }
-}
-
 /*******************************************/
 /*                                         */
 /*               HOME PAGE                 */
@@ -139,7 +102,6 @@ a{
 
 .book:hover{
     cursor: pointer;
-    /* transform: rotateY(0) rotateX(0) scale(1.5); */
 }
 
 /*******************************************/
@@ -206,26 +168,6 @@ a{
     transform: rotateY(90deg) translateX(-10px) translateZ(130px) translateY(10px);
 }
 
-/*******************************************/
-/*                                         */
-/*             MAIN SECTION                */
-/*                                         */
-/*******************************************/
-
-#section-main{
-    position: absolute;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0;
-}
-
-main{
-    height: 80%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
 
 /*******************************************/
 /*                 HEADER                  */
@@ -233,45 +175,106 @@ main{
 
 header{
     height: 10%;
-    width: 90%;
-    margin: 0 auto;
-    padding: 0.5rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 header h1{
     font-size: 1.5rem;
-    color: white;
+    color: var(--colour-book-pages);
 }
 
 header h1:hover{
     cursor: pointer;
 }
 
-#bookmark{
-    width: 1.5rem;
-    height: 2rem;
-    clip-path: polygon(0% 0%, 100% 0, 100% 100%, 50% 70%, 0% 100%);
-    background-color: var(--colour-book-cover);
-}
 
 /*******************************************/
 /*                   NAV                   */
 /*******************************************/
 
-nav{
-    height: 80%;
-    width: 90%;
-    padding: 3rem 1rem 1rem 1rem;
-    margin: 0 auto;
+.navbar{
+    height: 100%;
 }
 
-nav h1{
+.navbar-brand{
+    color: var(--colour-book-pages);
+}
+
+.navbar-brand:hover {
+    color: var(--colour-book-pages);
+}
+
+.navbar-toggler{
+    width: 1.5rem;
+    height: 2rem;
+    padding: 0;
+    border: none;
+}
+
+.navbar-toggler:focus{
+    box-shadow: none;
+}
+
+.navbar-toggler-icon{
+    height: inherit;
+    width: inherit;
+    background-image: none;
+    clip-path: polygon(0% 0%, 100% 0, 100% 100%, 50% 70%, 0% 100%);
+    background-color: var(--colour-book-cover);
+    border-radius: 0;
+}
+
+/* Dropdown navigation menu */
+
+.navbar-collapse {
+    position: absolute;
+    top: 10vh;
+    left: 0;
+    right: 0;
+    padding-left: calc(var(--bs-gutter-x) * .5);
+    padding-right: calc(var(--bs-gutter-x) * .5);
+    background-color: var(--colour-background);
+    z-index: 1000;
+}
+
+.navbar-nav{
+    height: 90vh;
+    padding: 0 calc(var(--bs-gutter-x) * 1.5);
+}
+
+.sommaire{
     margin-bottom: 3rem;
+    display: block;
+    font-weight: bold;
     text-transform: uppercase;
     color: var(--colour-book-pages);
+}
+
+/* Navigation list */
+
+.carousel-indicators{
+    position: relative;
+    margin: 0;
+    display: block;
+}
+
+.carousel-indicators [data-bs-target]{
+    width: 100%;
+    height: fit-content;
+    box-sizing: border-box;
+    margin-bottom:  calc(var(--bs-gutter-x) * 1);
+    margin-left: 0;
+    margin-right: 0;
+    padding-top: calc(var(--bs-gutter-x) * .5);
+    padding-bottom: calc(var(--bs-gutter-x) * .5);
+    padding-left: calc(var(--bs-gutter-x) * 1);
+    border-top: unset;
+    border-bottom: unset;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-clip: unset;
+    clip-path: polygon(0% 0%, 100% 0, 90% 50%, 100% 100%, 0% 100%);
+    text-indent: 0;
+    text-transform: capitalize;
 }
 
 #about-me{
@@ -290,104 +293,109 @@ nav h1{
     background-color: var(--colour-contact);
 }
 
-.bookmark{
-    padding: 0.5rem 0 0.5rem 1rem;
-    clip-path: polygon(0% 0%, 100% 0, 90% 50%, 100% 100%, 0% 100%);
+
+/*******************************************/
+/*                                         */
+/*             MAIN SECTION                */
+/*                                         */
+/*******************************************/
+
+#section-main{
+    height: 80%;
 }
 
-/*******************************************/
-/*                 PAGES                   */
-/*******************************************/
-
-main section{
+article{
+    position: relative;
+    height: 100%;
+    padding-top: calc(var(--bs-gutter-x)*1);
     background-color: var(--colour-book-pages);
 }
 
+/* Carousel */
 
-nav h1, section h2{
-    font-size: 2rem;
-    font-style: italic;
+.carousel{
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
 }
 
-h2{
+.nav-btn-container{
+    height: 10vh;
+}
+
+.carousel-control-prev, .carousel-control-next{
+    height: 100%;
+    position: relative;
+    width: 50%;
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon{
+    background-color: var(--colour-background);
+}
+
+.carousel-h2{
+    font-style: italic;
+    font-size: 1.5rem;
     margin-bottom: 1rem;
     text-transform: capitalize;
 }
 
-.page{
-    width: 90%;
-    padding: 3rem 1rem 1rem 1rem;
-    display: block;
-    overflow-y: scroll;
-}
-
-.front-logos-container {
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: center;
-}
-
-.front-logo{
-    width: calc(100% / 3);
-}
-
 .screenshot-a{
-    width: 80%;
-    margin: 0 auto 1rem;
-    display: flex;
-    justify-content: center;
+    display: block;
+    margin: 0 auto;
 }
 
-.project{
-    width: 100%;
-    border: var(--colour-projects) solid 5px;
-    border-style: ridge;
+#h2-about-me span{
+    color: var(--colour-about-me) ;
+    text-shadow: var(--colour-background) 0 0 2px;
 }
 
-.contact-container{
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
+#h2-tech span{
+    color: var(--colour-tech) ;
+    text-shadow: var(--colour-background) 0 0 2px;
 }
 
-.contact-container a{
-    height: 100%;
-    padding: 1rem;
-    border-radius: 5px;
-    border: var(--colour-contact) solid 2px;
-    font-weight: bold;
-    color: white;
+#h2-projects span{
+    color: var(--colour-projects) ;
+    text-shadow: var(--colour-background) 0 0 2px;
+}
+
+#h2-contact span{
+    color: var(--colour-contact) ;
+    text-shadow: var(--colour-background) 0 0 2px;
+}
+
+.accordion{
+    --bs-accordion-border-radius: 0;
+    --bs-accordion-inner-border-radius: 0;
+    --bs-accordion-btn-focus-box-shadow: unset;
+    --bs-accordion-active-bg: var(--colour-tech);
+    --bs-accordion-active-color: #fff;
+}
+
+.accordion-item{
+    margin-bottom: calc(var(--bs-gutter-x)*0.5);
+}
+
+.accordion-header{
+    border: 1px solid var(--colour-tech);
+}
+
+.container-contact-btn{
+    padding: calc(var(--bs-gutter-x)*0.5);
+}
+
+.contact-btn{
+    padding: calc(var(--bs-gutter-x)*0.5);
     background-color: var(--colour-contact);
-    animation: shake 8s ease infinite;
+    color: white;
+    animation: shake 5s ease 4;
     animation-delay: 3s;
 }
 
 /*******************************************/
-/*                 FOOTER                  */
-/*******************************************/
-
-footer{
-    height: 10%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
-button{
-    width: 50%;
-    padding: 0.5rem 1rem;
-    border: none;
-    background-color: transparent;
-    color: var(--colour-book-pages);
-}
-
-button:hover{
-    cursor: pointer;
-}
-
-/*******************************************/
 /*                                         */
-/*                 STARS                   */
+/*             STARS ANIMATION             */
 /*                                         */
 /*******************************************/
 
@@ -397,52 +405,17 @@ button:hover{
     left: 0;
     width: 100%;
     height: 100%;
-    pointer-events: none; 
-    z-index: 1;
     display: block;
+    pointer-events: none; 
 }
 
 .star {
     position: absolute;
-    background-image: url("images/image-star.png");
-    background-color: white;
-    border-radius: 50%;
+    width: 5px;
+    height: 5px;
+    background-image: url("images/image-star.svg");
+    background-size: cover;
     opacity: 0;
     animation: twinkle 1.5s infinite alternate;
+    z-index: 1;
 }
-
-/*******************************************/
-/*                                         */
-/*             MEDIA QUERIES               */
-/*                                         */
-/*******************************************/
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
-    header{
-        width: 80%;
-    }
-    nav{
-        width: 80%;
-    }
-    .page{
-        width: 80%;
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
-}
-
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-
-}
-
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-
-} 
