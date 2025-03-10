@@ -4,22 +4,24 @@ document.addEventListener("DOMContentLoaded", event => {
     /*                VARIABLES                */
     /*                                         */
     /*******************************************/
-    
-    const carouselPages = document.querySelectorAll(".carousel-indicators li");
+
+    const carousel = document.getElementById("carousel-pages");
+    const carouselIndicators = document.querySelectorAll(".carousel-indicators li");
     const bookmarkToggle = document.querySelector(".navbar-toggler");
-   
-    
+
+
     /*******************************************/
     /*                                         */
     /*                FUNCTIONS                */
     /*                                         */
+
     /*******************************************/
-    
-    function updateBookmark(index){
-        for(let i=0; i< carouselPages.length; i++){
-            carouselPages[i].classList.remove("active");
+
+    function updateBookmark(index) {
+        for (let i = 0; i < carouselIndicators.length; i++) {
+            carouselIndicators[i].classList.remove("active");
         }
-        carouselPages[index].classList.add("active");
+        carouselIndicators[index].classList.add("active");
         bookmarkToggle.click();
     }
 
@@ -29,12 +31,19 @@ document.addEventListener("DOMContentLoaded", event => {
     /*                 EVENTS                  */
     /*                                         */
     /*******************************************/
-    
-    
-    for(let i=0; i< carouselPages.length; i++){
-        carouselPages[i].addEventListener("click", event =>{
+
+
+    for (let i = 0; i < carouselIndicators.length; i++) {
+        carouselIndicators[i].addEventListener("click", event => {
             updateBookmark(i);
         })
     }
-    
+
+    carousel.addEventListener('slid.bs.carousel', function (event) {
+        const activeIndex = event.to;
+        for (let i = 0; i < carouselIndicators.length; i++) {
+            carouselIndicators[i].classList.remove("active");
+        }
+        carouselIndicators[activeIndex].classList.add("active");
+    });
 });

@@ -1,47 +1,49 @@
-/*******************************************/
-/*                                         */
-/*                VARIABLES                */
-/*                                         */
-/*******************************************/
-
-let windowHeight = window.innerHeight;
+document.addEventListener("DOMContentLoaded", event => {
 
 
-/*******************************************/
-/*                                         */
-/*                FUNCTIONS                */
-/*                                         */
-/*******************************************/
+    /*******************************************/
+    /*                                         */
+    /*                VARIABLES                */
+    /*                                         */
+    /*******************************************/
 
-function resizeScreenHeight() {
-    const screenHeight = window.innerHeight;
-    document.body.style.height = `${screenHeight}px`;
-}
+    let windowHeight = window.innerHeight;
 
-function createStars() {
-    const starContainer = document.querySelector('.stars');
-    const numberOfStars = 20;
 
-    for (let i = 0; i < numberOfStars; i++) {
-        const star = document.createElement('div');
-        star.classList.add('star');
-        star.style.left = `${Math.random() * 100}vw`;
-        star.style.top = `${Math.random() * 100}vh`; 
-        star.style.animationDuration = `${Math.random() * 2 + 1}s`; 
-        star.style.animationDelay = `${Math.random() * 5}s`; 
-        starContainer.appendChild(star);
+    /*******************************************/
+    /*                                         */
+    /*                FUNCTIONS                */
+    /*                                         */
+    /*******************************************/
+
+    function resizeScreenHeight() {
+        const screenHeight = window.innerHeight;
+        document.body.style.height = `${screenHeight}px`;
     }
-}
 
-/*******************************************/
-/*                                         */
-/*                 EVENTS                  */
-/*                                         */
-/*******************************************/
+    function createStars() {
+        const starContainer = document.querySelector('.stars');
+        const numberOfStars = 20;
 
-window.addEventListener('resize', resizeScreenHeight);
+        for (let i = 0; i < numberOfStars; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+            star.style.animationDuration = `${Math.random() * 2 + 1}s`;
+            star.style.animationDelay = `${Math.random() * 5}s`;
+            starContainer.appendChild(star);
+        }
+    }
 
-window.addEventListener('load', function(){
+    /*******************************************/
+    /*                                         */
+    /*                 EVENTS                  */
+    /*                                         */
+    /*******************************************/
+
+    window.addEventListener('resize', resizeScreenHeight);
+
     resizeScreenHeight();
     createStars();
 });

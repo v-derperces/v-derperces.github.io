@@ -275,6 +275,7 @@ header h1:hover{
     clip-path: polygon(0% 0%, 100% 0, 90% 50%, 100% 100%, 0% 100%);
     text-indent: 0;
     text-transform: capitalize;
+    color: white;
 }
 
 #about-me{
