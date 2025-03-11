@@ -22,7 +22,10 @@ document.addEventListener("DOMContentLoaded", event => {
             carouselIndicators[i].classList.remove("active");
         }
         carouselIndicators[index].classList.add("active");
-        bookmarkToggle.click();
+
+        if(window.innerWidth < 992){
+            bookmarkToggle.click();
+        }
     }
 
 
